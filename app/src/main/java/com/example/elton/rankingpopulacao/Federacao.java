@@ -13,4 +13,35 @@ public class Federacao{
         this.bandeira = bandeira;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getPopulacao() {
+        return populacao;
+    }
+
+    public void setPopulacao(int populacao) {
+        this.populacao = populacao;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public int getBandeira() {
+        return bandeira;
+    }
+
+    public void setBandeira(int bandeira) {
+        this.bandeira = bandeira;
+    }
 }

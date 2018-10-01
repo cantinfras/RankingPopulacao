@@ -1,6 +1,8 @@
 package com.example.elton.rankingpopulacao;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,8 +17,8 @@ public class FederacaoAdapter extends BaseAdapter {
     List<Federacao> lista;
 
     public FederacaoAdapter(Context ctx, List<Federacao> lista){
-        this.ctx;
-        this.lista;
+        this.ctx = ctx;
+        this.lista = lista;
     }
 
     @Override
@@ -34,16 +36,21 @@ public class FederacaoAdapter extends BaseAdapter {
         return i;
     }
 
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup){
         Federacao federacao = lista.get(i);
-        View linha = LaoyoutInflater.from(ctx).inflate(R.layout.linha,null);
-        ImageView img = (ImageView)linha.findViewById(R.id.imageView);
-        TextView nome = (TextView) linha.findViewById(textView_1);
-        TextView populacao = (TextView) linha.findViewById(textView_2);
-        TextView ano = (TextView) linha.findViewById(textView_3);
-        TypeArray bandeiras = ctx.getResources().obtainTypedArray(R.array.bandeiras);
-        return lista;
+        View linha = LayoutInflater.from(ctx).inflate(R.layout.linha,null);
+        ImageView img = (ImageView) linha.findViewById(R.id.imageView);
+        TextView nome = (TextView) linha.findViewById(R.id.textView_1);
+        TextView populacao = (TextView) linha.findViewById(R.id.textView_2);
+        TextView ano = (TextView) linha.findViewById(R.id.textView_3);
+        TypedArray bandeiras = ctx.getResources().obtainTypedArray(R.array.bandeiras);
+        img.setImageDrawable(bandeiras.getDrawable(federacao.getBandeira()));
+        nome.setText(federacao.getNome());
+        populacao.setText(federacao.getPopulacao()+"");
+        ano.setText(federacao.getAno()+"");
+        return linha;
     }
 
 }

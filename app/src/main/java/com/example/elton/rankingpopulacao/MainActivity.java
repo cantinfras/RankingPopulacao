@@ -19,7 +19,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.linha);
         listView=new ListView(this);
         setContentView(listView);
         federacoes=new ArrayList<Federacao>();
@@ -45,9 +45,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     @Override
     public void onItemClick(AdapterView<?>adapterView, View view, int i, long l){
         Federacao federacao = (Federacao)adapterView.getItemAtPosition(i);
-        Toast.makeText(this,federacao.nome, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this,federacao.populacao, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this,federacao.ano, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,federacao.getNome(), Toast.LENGTH_SHORT).show();
     }
 
 
