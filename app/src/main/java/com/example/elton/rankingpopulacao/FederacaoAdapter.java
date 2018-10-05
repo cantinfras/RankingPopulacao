@@ -42,14 +42,16 @@ public class FederacaoAdapter extends BaseAdapter {
         Federacao federacao = lista.get(i);
         View linha = LayoutInflater.from(ctx).inflate(R.layout.linha,null);
         ImageView img = (ImageView) linha.findViewById(R.id.imageView);
+        TextView ranking = (TextView) linha.findViewById(R.id.textView_0);
         TextView nome = (TextView) linha.findViewById(R.id.textView_1);
         TextView populacao = (TextView) linha.findViewById(R.id.textView_2);
         TextView ano = (TextView) linha.findViewById(R.id.textView_3);
         TypedArray bandeiras = ctx.getResources().obtainTypedArray(R.array.bandeiras);
         img.setImageDrawable(bandeiras.getDrawable(federacao.getBandeira()));
-        nome.setText(federacao.getNome());
-        populacao.setText(federacao.getPopulacao()+"");
-        ano.setText(federacao.getAno()+"");
+        ranking.setText("Ranking: "+federacao.getRanking());
+        nome.setText("Federação: "+federacao.getNome());
+        populacao.setText("População: "+federacao.getPopulacao());
+        ano.setText("Ano: "+federacao.getAno());
         return linha;
     }
 
